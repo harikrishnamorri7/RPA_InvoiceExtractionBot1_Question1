@@ -1,0 +1,432 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="970,579" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="476,414" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,322" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <Sequence DisplayName="InvoiceExtraction" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="s:String[]" Name="arrCollectPDF" />
+            <Variable x:TypeArguments="x:String" Default="[Environment.CurrentDirectory+&quot;\Input&quot;]" Name="strPathPdffiles" />
+            <Variable x:TypeArguments="x:String" Default="[Environment.CurrentDirectory+&quot;\OutPut\Extracted Invoice Details.xlsx&quot;]" Name="strExcelPath" />
+            <Variable x:TypeArguments="sd:DataTable" Name="BuildDataTable" />
+            <Variable x:TypeArguments="x:String" Default="harikrishnamorri7@gmail.com" Name="ToAccountName" />
+            <Variable x:TypeArguments="x:String" Default="Invoice Details" Name="strSubject" />
+            <Variable x:TypeArguments="x:String" Default="Hi, Please find attached invoice Details" Name="strBody" />
+            <Variable x:TypeArguments="x:String" Default="hari.krishnamorri@infosys.com" Name="strFromAccountName" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Invoice Process&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Getting Invoice PDF files&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="500,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:String[]">[arrCollectPDF]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(strPathPdffiles)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:BuildDataTable DataTable="[BuildDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="500,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Billed_x0020_To&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Your_x0020_Company_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Total&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:BuildDataTable>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="500,3108" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,2881" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrCollectPDF]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="426,2747" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="str" />
+                        <Variable x:TypeArguments="x:String" Name="outInvoiceNumber" />
+                        <Variable x:TypeArguments="x:String" Name="outBilledTo" />
+                        <Variable x:TypeArguments="x:String" Name="outYourCompanyName" />
+                        <Variable x:TypeArguments="x:String" Name="outInvoiceTotal" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Opening the PDF files&quot;]" />
+                      <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process - Open all the PDF files" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="384,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+                      <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey - Set the PDF files as Actual size" sap:VirtualizedContainerService.HintSize="384,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="num1" KeyModifiers="Ctrl" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="397564d4-fde7-4982-95e6-233f5ecb6d68">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="384,116" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="pgup" KeyModifiers="None" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="14c4db6c-8dba-46d0-acf9-791a2505e2ce">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base - Extract Invoice Number" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
+                        <ui:AnchorBase.Action>
+                          <ActivityAction x:TypeArguments="ui:Anchor">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                            </ActivityAction.Argument>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b199da6-6613-4ca5-9299-34b2b7e14179" InformativeScreenshot="f5e13c93dd90d3ae208b4cefa809c671" Selector="&lt;ctrl role='editable text' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[outInvoiceNumber]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                          </ActivityAction>
+                        </ui:AnchorBase.Action>
+                        <ui:AnchorBase.AnchorProvider>
+                          <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image 'acrord32.exe Sample_Inv...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
+                            <ui:WaitImageAppear.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHUAAAAZCAYAAAAPMmGdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPASURBVGhD7ZfbTxNBFIf9Q0nWR0l8aKiJRIytmEoAQQUJkUvBRjESQXxQgxU1RoNcNGBqMUblZgwUIlgKWmVzPDO7Mzuz3d0uC/owmV8yabt75sw555tbj4GWctJQFZSGqqA0VAWloSooDVVBaagKSkNVUBqqgqJQzeUxOBWrByM9B0XzE9xrPAM1sUZIzW5TI7SAnZleOE6fFWDxQavrPao0CZ3xeqi58BjyJnlQhC/TY9CZIL7weawBavvGIbtUoubAxonfhGyJdCjD+vssDLad87Zn/uk7sTXAyYcrsG9ZaaECoGLBkvdhao8UXIS6LdlvEQf8vVVgkwB6fg1/uwFgi/fBSOG3C+o+7C7chpinfTcMLiLYCFBZnM7EIdqE1/0J+9kve4J65WI9+8F8+Niw8f8IdmJstX0TMLWB+Up93O0K5vjRqbvUWiD1bAWXSHgFQ+UFk6FyIHxV2oUiwS2XHQDxLujKbVoFN9dgfridF4uPQ4pb/GyP2QJNMxs2oDIUZgcoaGK/U7ETVBeHSoo7/MEuTDSoRuIinEiO22M7/YKhWs3yHRUqaZegI79Dowsjf6i4ogaGmunnSKEsQ+VJ2RAlyCx4jxXEYQsg8fuL3Cgf3yqsh/xWKoXjTdmBSpoda1SobV2QqHPyHT2fgNMtzTxPDlWYdGYhCymWL+5GvnUhYjXkcRKx+Hz6+CgAKgayPg83Emdxli/AugSV9RETsr6bQYGIvjnUDDyauO6fLNMhoBq9d2EAxzI6XsGK+T0aVPTRnxSPn3bovkWOGLEGGI8XVGmyC7HbTaq7J1RWd9eO6KNgqCV2NrIEHKgMkJGegnd0YDbQP16pEbZfI/0W1uiZTbax1WhQ7TyJr2/43qjLwMOnPTxP3+2X3QkEv24bGar7PTmXX0J+lyR9JFDRkTSYAJXNong7JFvxxioWm8M74Jkq2h/hmWqNtwrZqyTOIRjsiQKVwbTyZb+rQsVm7RABk50oCGr6DXwNmTNRdaiYpHMzFaE6/Sq32oPefh2AvvZ+2y82B4gsMS/y3okXGx2XnXNoc/kJ5OhNfxtyd5rQRoZFayPluwRFL6jipOOgSN22QkIVViGbiFVWplshoBID5lyG6hkI1//6nxoeqgMM+7Fx9+bw3sBiFJt14xR98N3CA1LQSnVPoEob9Dc971FLtt2yuh9g+1VVlVDxmXQjJZMJd6KlSRjtTdkFxpbMQCZvHQOeE54W9Wc4qNyX/5nqD/UQFyUttaShKigNVUFpqApKQ1VQGqpyAvgLFzcASLXcF/UAAAAASUVORK5CYII=" />
+                            </ui:WaitImageAppear.Image>
+                            <ui:WaitImageAppear.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4d54b0d9-dc14-4b77-9377-7a4dd9e4f744" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:WaitImageAppear.Target>
+                          </ui:WaitImageAppear>
+                        </ui:AnchorBase.AnchorProvider>
+                      </ui:AnchorBase>
+                      <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base - Extarct Billed To" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_2">
+                        <ui:AnchorBase.Action>
+                          <ActivityAction x:TypeArguments="ui:Anchor">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                            </ActivityAction.Argument>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3c43c0e1-29b7-4276-81e0-17432238542e" InformativeScreenshot="c3fa0322c7e9f7411efa94d5fc350dc8" Selector="&lt;ctrl role='editable text' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[outBilledTo]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                          </ActivityAction>
+                        </ui:AnchorBase.Action>
+                        <ui:AnchorBase.AnchorProvider>
+                          <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image 'acrord32.exe Sample_Inv...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_2">
+                            <ui:WaitImageAppear.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAVCAYAAAAKP8NQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG7SURBVFhH7ZbNS8MwGIf9QwfzKngQJvh1cEx60YMHvfmBiKcJKsIEnYqe5sTDkKIeHNPhQaeg1k2crvxMm2zN2qTNcDIGeSCXJnmT9+mbtAPQRKIlKaAlKaAlKaAlKaAlKaAlKeCT9IVSZg6xkXFfm4WRucaDTYbYt9hOTSKW2EC26o2PrxbwSoMwwvoI1RwWEv51nDaF4b0yfu53MBro4/YhwRbOY83dcwO1uxy2lgzveXIda+dlWCyGH0VJTkvBuHjrsSTaP5S+kSYUJem4uA9DuG4SE6ePaLA4PBJJdKN0Qh1PJ4sYJIGcZK1uS5o5wJWgMlrJcv12JUsTdNcOKSeX5vrs5bq84Gxl2hUyljZZRdZRMTeRConbgST6zP7vSmIbFUnykuQTlyGQJH0x4XGVj1t8/hDmJ4ncx5LEMR0EQjk6uJPome16JQU2TOmDSuKPG7dhR4xV7JEkG7XSbujd0Y5AUktGV+4kMkHQnGRlF3dwbB6X0r4CPmTHjfW/NyUFmvwr1I5IElHdvPw7iKsoiXx2l4+Qf/4mq/RSUvR/kodYkluRf/tP0ojQkhTQkhTQkhTQkiIBfgHlIOy9KJCmhQAAAABJRU5ErkJggg==" />
+                            </ui:WaitImageAppear.Image>
+                            <ui:WaitImageAppear.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fefb89f8-d645-438a-a351-b327698a4d01" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:WaitImageAppear.Target>
+                          </ui:WaitImageAppear>
+                        </ui:AnchorBase.AnchorProvider>
+                      </ui:AnchorBase>
+                      <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base - Extract Your Company Name" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_3">
+                        <ui:AnchorBase.Action>
+                          <ActivityAction x:TypeArguments="ui:Anchor">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                            </ActivityAction.Argument>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="056f2606-49f4-4570-b94c-77535a3a23c9" InformativeScreenshot="af2941e447576a317508e208a48d4f5e" Selector="&lt;ctrl role='editable text' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[outYourCompanyName]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                          </ActivityAction>
+                        </ui:AnchorBase.Action>
+                        <ui:AnchorBase.AnchorProvider>
+                          <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image 'acrord32.exe Sample_Inv...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_3">
+                            <ui:WaitImageAppear.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAXCAYAAAAPxH3bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS6SURBVGhD7Zjbb1RFHMf9Q5usj2J4ILskaCXuUrIQWqhcbEhsoaUWCEULPEACKyhGgi1IqFnLC0q5RGghlO4WtKabr3P7zfnNOXPOduno03yTedg5c/ldPvM7c/YDREUFUoQpKpgiTFHBFGGKCqYIU1QwRZiiginCFBVMEaaoYIowRQVTBqbOcgP1yifo23sNCx3qfIgLA/3oq0yhsSY7O3i7eBszo3X07RBjZatNYmLuCVpqwt94dHlI9ZdO3seK6uugfWcUH5q+Fq1J820bRP17WsendSz91sDEoc/N+M+wbewqGotr5rlUC3/MXcSxKq2fGsP3tj4Jrd3GMem77Ff+r+DnE1WzBjW51nXMvvxHz5Fi6yX+SvniIGT2kX2rm4p3Sna/AdTvvqFOE1/eJ3ofX8ROZXdevz9H0s/tVxaxan+n22FMPF5Xs0ieykQBoM1pA7n4E2zIHgpAZoMaPr35QszYCkyyHcTRhbaa5UpA/OAsdvjmVI5j4pGERcD2w5f+AFTG8O2ygMAmq46P+5Og8ADnw6Qbh8OZ5wCQxMHxicG0IuztFu+MeOxqlzD7Th/wLEx8f7/Npeo+fFS7akDm44PAJPTuPk6JU106egvPNp6icURUAWv0KxPgGnZNN/FMGbGO5eZ5DEjAVDB7gYkbRfNyAmnnDGL/nZfmudj77rgCTK7bpupSGcFI85Ue03mB+enh7N6VYVSHqmovOgClQyOo2UpBMDEb7VyChmwW8Rg8UJhMW30cmIQK4+0Rh8nGygMT87M2JNZkoFuYhL/VsvFPjJ/ZUzV+cJgKwGbKuTPR6T6II5dOiU11xVGLUbJ4WVYiyKQzy1uEiSckkQ2AXTOtglNtIRMBbf1ugjyG8TMHEnv27sb2M9M4XASTSbxNjE3YFK4/v+VCwvwZOD1u49hJw1QUb5/sntp+XXHXMzAl8bqHP/OejX6DEzXdr/uGcfy0tIXDJKF1my8H+RdwCpqczE4JGZGFiYPQC0yukfpO8hMW3jqLCxWAYkU2eMawpCcwTeFm8wLK5a81COU9qN+4xg5L99ccB3yVDhSB5sTkKZrn9qtY3ltKQyeUE2+vuC9L82LebmybfoAlB5jUwUwBnNg9i1/FOAKuVJ7ElRtfBYYpLzHBK1PaUAHTyV/M69MVT1zaEa1eK5OpJmVd2ksEVSFM/AKeSliX3+quWe631c/1IyfePnGY1qiqUUUxeztjRDBTv5NYEkT6VZhUMQ7TJmwS6h2mTd2ZNhJwvvgOTXXK3uiTadbrWJj4fcTcF5xXH5MNCLsPbenOJGxtG7AkKAKgh21+WDyvOS7rg4TMbRqU9OWaYsrHkN4XJgaKWteAS2+QTHOfq3jYsRqg1v8Hk7C9y9ecGsvLttPMV40NAE8Ur24y+Gkl4GTWpS81e/8oGOMk47WtPg6Mm4ApP2GiqbUphswfFpdgMImKnHzlyr2SN4OvyX1XGUzWZzV3hVX3/NecL0fvBZMyvvB/Jin/mMkFqhY+mDzBz0jAEup/Jifh2k+6HHeHKS8+3AdKKvcngT0cTLKPqrrYa27eE1shNu/H5kxSmZxc/PVfwBQV1ZsiTFHBFGGKCqYIU1QwRZiiAgn4F0DvcnhUPhllAAAAAElFTkSuQmCC" />
+                            </ui:WaitImageAppear.Image>
+                            <ui:WaitImageAppear.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b8a3dc4c-d188-4a99-99aa-2c60192c727d" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:WaitImageAppear.Target>
+                          </ui:WaitImageAppear>
+                        </ui:AnchorBase.AnchorProvider>
+                      </ui:AnchorBase>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="384,116" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a7a6cd65-6b5d-4fe3-9fc2-585878378206">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base - Extract Invoice Total" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_4">
+                        <ui:AnchorBase.Action>
+                          <ActivityAction x:TypeArguments="ui:Anchor">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                            </ActivityAction.Argument>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="48432403-e399-4fdf-bacb-1748020c73fe" InformativeScreenshot="6b946820722b86fc2625a706fdcc47ae" Selector="&lt;ctrl role='editable text' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[outInvoiceTotal]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                          </ActivityAction>
+                        </ui:AnchorBase.Action>
+                        <ui:AnchorBase.AnchorProvider>
+                          <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image 'acrord32.exe Sample_Inv...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_4">
+                            <ui:WaitImageAppear.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAWCAYAAACmG0BRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALCSURBVGhD7ZZBaxpBFMf7QXPwE4jBS0DqsrdSNIFcyqaFBormkoNYPAkWCsZ6EIOXWg1Fiyhit3WRnP+d2d2ZnZ3ZyBqXTA9z+GMy8+a9N7/39jGv/u4eYaRHBr5GGfgaZeBrlIGvUQa+Rhn4GmXga5SBr1EGvkYZ+BqlwHfHLZwWzpBz+lh4E9TtEk4KNqrdVWizw6J7jZy/NseocS7tE637qBbPcGK3MPLo2gajbgtVi/oi64US8k4LnfEmsGdxitforHf+mjsfoVm7JHGoPZH1EfXuFEvRP9vjKuG0MYHL8hB9K7ZULO8dluM+6s6baI/H24Z3FM9F8jmFsRg7mQdfF+5HlRI+OWjd4tuGHhThr+L2vg+2z0B4mLadCKKoooPmzFPhb+5xxQslykK58R3LjOG7sy+wE/1ZsNsT3KeCHy9SYlGeDZ9fLA6fX453+Qodxyb256iPt1GXFi/xYbAIwHgL3N0EXR2L4yf3J7wE+Tre9/Dg+yR5zXu4oAWhNj970peVTmqjULF8SWFvBmE8Dw+DBsp+3gIwuUm4D3GvgvJbK2ZzHHzSoVefKv5vc7aNw+cVD2HHiiF/BUIsXhSS0GocXUr8W76gfNZvCkH7zhAlwme+lEKyoggjZA/8yHcPP2J8joZPDs2GZBS8Rr42xDTReQD4t/C3ywuzZxxQ3yLwNF2dIXwORonHck8DX7IN82Nxjoe/3oazu4J3NfqrJpVzvuJO/AqU+S/EyqLzsxg7WXS+vC79nwF8wSl1JCbFKs/mnXgRDvnQmS/OYJLXfzzzOVxFAaNs4NMn2fAWecGxfE4dMYe/djho5Qx9fczgsoIq+zLYuJLhk/W9rx0Sj9kmwmcjJ+l8EOvXE8U5ED5NYIbmBeluCX70VbCRE/l8uXf+8+Dvf+cLdok8nri3YNsefE4H3+jlZOBr0yP+AQE07n2wvuREAAAAAElFTkSuQmCC" />
+                            </ui:WaitImageAppear.Image>
+                            <ui:WaitImageAppear.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1582e9a7-f369-4ed2-a6dd-da952b1c2001" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:WaitImageAppear.Target>
+                          </ui:WaitImageAppear>
+                        </ui:AnchorBase.AnchorProvider>
+                      </ui:AnchorBase>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Adding pdf extracted data to Build Data table&quot;]" />
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{outInvoiceNumber,outBilledTo,outInvoiceTotal,outYourCompanyName}]" DataTable="[BuildDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                      <ui:CloseApplication DisplayName="Close Application 'client'" sap:VirtualizedContainerService.HintSize="384,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+                        <ui:CloseApplication.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="902e24cd-b4ad-4f8c-972f-c260e908eb5d" InformativeScreenshot="52b20254b0ee12402087f8b5d8f7b703" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl role='client' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:CloseApplication.Target>
+                      </ui:CloseApplication>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="466,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[exception.Message]" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Writing the Build data table data to Excel&quot;]" />
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="500,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[strExcelPath]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteRange AddHeaders="True" DataTable="[BuildDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExcelApplicationScope>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Sending mail&quot;]" />
+          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[strFromAccountName]" Body="[strBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="500,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[strSubject]" To="[ToAccountName]">
+            <ui:SendOutlookMail.Files>
+              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                <InArgument x:TypeArguments="x:String">[strExcelPath]</InArgument>
+              </scg:List>
+            </ui:SendOutlookMail.Files>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:SendOutlookMail>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="500,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Invoice Process Ended&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exceptionMain" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[exceptionMain.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
