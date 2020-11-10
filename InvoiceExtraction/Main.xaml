@@ -86,7 +86,7 @@
             <Variable x:TypeArguments="x:String" Default="Hi, Please find attached invoice Details" Name="strBody" />
             <Variable x:TypeArguments="x:String" Name="strFromAccountName">
               <Variable.Default>
-                <Literal x:TypeArguments="x:String">harikrishnamorri77@outlook.com</Literal>
+                <Literal x:TypeArguments="x:String">harikrishnamorri77.java@outlook.com</Literal>
               </Variable.Default>
             </Variable>
           </Sequence.Variables>
